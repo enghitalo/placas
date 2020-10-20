@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.14.19050301)
 project(placas LANGUAGES CXX)
 
 set(BINARY_NAME "placas")
