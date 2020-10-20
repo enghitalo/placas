@@ -1,6 +1,6 @@
 # placas
 
-A new Flutter project.
+Esse projeto tem como objetivo criar placas de promoções, placas em tamanho A4, A5 e 595x210 em vários design diferentes extraindo os dados de de uma planilha e emprimindo em batch
 
 ## Getting Started
 

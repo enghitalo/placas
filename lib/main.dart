@@ -180,7 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           Text(
-                            '28',
+                            '27',
                             softWrap: true,
                             style: TextStyle(
                                 fontSize: 250 * fator_preco,
