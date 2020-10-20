@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,  
+            color: Colors.white,
             border: Border.all(width: .5),
           ),
           padding: EdgeInsets.all(20 * fator_preco),
