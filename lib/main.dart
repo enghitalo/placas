@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+List<String> models_of_boards = ["Regular", "Oferta", "Promoção", "Scanner"];
+int index_models_of_boards = 0;
 double paperize = 842;
 var a4 = true;
 String folha_nome = 'A4';
@@ -78,7 +80,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 40,
                 child: RaisedButton(
                   color: Colors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                                  if (index_models_of_boards == 0) {
+                      setState(() {
+                        index_models_of_boards = models_of_boards.length-1;
+                      });
+                    } else {
+                      setState(() {
+                        index_models_of_boards--;
+                      });
+                    }
+                  },
                   child: Icon(
                     Icons.arrow_left,
                   ),
@@ -87,8 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Listener(
                 onPointerDown: (event) {
-                  print(event.position-event.localPosition);
-
+                  print(event.position - event.localPosition);
                 },
                 child: Container(
                   padding: EdgeInsets.only(left: 10, right: 10),
@@ -97,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     children: [
                       Text(
-                        'PROMOÇÃO',
+                        models_of_boards[index_models_of_boards],
                         style: TextStyle(fontSize: 20),
                       ),
                       Icon(Icons.arrow_drop_down)
@@ -110,7 +121,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 40,
                 child: RaisedButton(
                   color: Colors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    if (index_models_of_boards == models_of_boards.length-1) {
+                      setState(() {
+                        index_models_of_boards = 0;
+                      });
+                    } else {
+                      setState(() {
+                        index_models_of_boards++;
+                      });
+                    }
+                  },
                   child: Icon(
                     Icons.arrow_right,
                   ),
@@ -217,13 +238,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         right: 0,
                         child: Column(
                           children: [
-                            Divider(
-                              indent: 40,
-                              endIndent: 20,
-                              height: 0,
-                              thickness: 2,
-                              color: Colors.black,
-                            ),
+                            // Divider(
+                            //   indent: 40,
+                            //   endIndent: 20,
+                            //   height: 0,
+                            //   thickness: 2,
+                            //   color: Colors.black,
+                            // ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
