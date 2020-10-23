@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
-List<int> dataset = [0, 1];
+List<int> dataset = [0, 1,2];
 List<String> family = ['', ''];
-List<String> marca = ['REPOLHO ROXO', 'MARMELANDINHA CASEIRA'];
+List<String> marca = ['REPOLHO ROXO', 'MARMELANDINHA CASEIRA', 'MARMELANDINHA CASEIRA'];
 List<String> tipo = ['', ''];
-List<String> unidade = ['kg', 'kg'];
-List<double> price = [0, 99.99];
-List<String> model = ['E', 'M'];
+List<String> unidade = ['kg', 'kg', 'kg'];
+List<double> price = [0, 99.99, 99.99];
+List<String> model = ['E', 'M','E',];
 // var top_padding = 200 * fator_preco;
 // var right_padding = 20 * fator_preco;
 // var bottom_padding = 20 * fator_preco;
@@ -261,7 +261,7 @@ class Content extends StatelessWidget {
         children: [
           Positioned(
             left: model[index] == 'E'
-                ? 25
+                ? 10
                 : model[index] == 'M'
                     ? 25
                     : 0,

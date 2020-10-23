@@ -4,4 +4,4 @@ Esse projeto tem como objetivo criar placas de promoções, placas em tamanho A4
 
 ##Tela inicial
 
-![til](assets/apresentacao/placas_tela_inicial.png)
+![til](assets/apresentacao/placas_tela_inicial(2).png)
