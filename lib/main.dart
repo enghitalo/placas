@@ -19,7 +19,28 @@ class MyApp extends StatelessWidget {
   }
 }
 
-List<String> models_of_boards = ["Regular", "Oferta", "Promoção", "Scanner"];
+List<int> dataset = [0, 1];
+List<String> family = ['', ''];
+List<String> marca = ['REPOLHO ROXO', 'MARMELANDINHA CASEIRA'];
+List<String> tipo = ['', ''];
+List<String> unidade = ['kg', 'kg'];
+List<double> price = [0, 99.99];
+List<String> model = ['E', 'M'];
+// var top_padding = 200 * fator_preco;
+// var right_padding = 20 * fator_preco;
+// var bottom_padding = 20 * fator_preco;
+// var left_padding = 20 * fator_preco;
+bool isBoder = true;
+
+List<String> models_of_boards = [
+  "Feirinha",
+  "Regular",
+  "Oferta",
+  "Promoção",
+  "Scanner"
+];
+
+Map map_product;
 int index_models_of_boards = 0;
 double paperize = 842;
 var a4 = true;
@@ -38,16 +59,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   void fn_aFour() {
     // a4 = !a4;
     print(a4);
-
+    isBoder = !isBoder;
     if (a4) {
       setState(() {
         paperize = 842;
@@ -81,9 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: RaisedButton(
                   color: Colors.white,
                   onPressed: () {
-                                  if (index_models_of_boards == 0) {
+                    if (index_models_of_boards == 0) {
                       setState(() {
-                        index_models_of_boards = models_of_boards.length-1;
+                        index_models_of_boards = models_of_boards.length - 1;
                       });
                     } else {
                       setState(() {
@@ -122,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: RaisedButton(
                   color: Colors.white,
                   onPressed: () {
-                    if (index_models_of_boards == models_of_boards.length-1) {
+                    if (index_models_of_boards == models_of_boards.length - 1) {
                       setState(() {
                         index_models_of_boards = 0;
                       });
@@ -141,148 +156,77 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           Center(
-              child: Stack(
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(width: .5),
+              RaisedButton(
+                color: Colors.white,
+                onPressed: () {
+                  // if (index_models_of_boards == 0) {
+                  //   setState(() {
+                  //     index_models_of_boards = models_of_boards.length - 1;
+                  //   });
+                  // } else {
+                  //   setState(() {
+                  //     index_models_of_boards--;
+                  //   });
+                  // }
+                },
+                child: Icon(
+                  Icons.arrow_left,
                 ),
-                padding: EdgeInsets.all(20 * fator_preco),
-                height: paperize,
-                width: 595,
-                child:
-                    // // Column(
-                    // //   mainAxisAlignment: MainAxisAlignment.start,
-                    // //   children: <Widget>[
-
-                    Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(width: 2),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(width: 1),
+                    ),
+                    padding: EdgeInsets.only(
+                      top: 150 * fator_preco,
+                      right: 20 * fator_preco,
+                      bottom: 20 * fator_preco,
+                      left: 20 * fator_preco,
+                    ),
+                    height: paperize,
+                    width: 595,
                   ),
-                  child: Stack(
-                    children: [
-                      Column(
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Column(
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                  width: 500,
-                                  child: Text(
-                                    'PURIFICADOR DE AR',
-                                    textAlign: TextAlign.center,
-                                    softWrap: true,
-                                    style: TextStyle(
-                                      fontSize: 30 * fator_preco,
-                                      fontFamily: 'Qanelas',
-                                    ),
-                                  )),
-                            ],
-                          ),
-                          Center(
-                            child: SizedBox(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    margin:
-                                        EdgeInsets.only(top: 10 * fator_preco),
-                                    width: 553,
-                                    child: Text(
-                                      'Marmeladinha caseira'.toUpperCase(),
-                                      textAlign: TextAlign.center,
-                                      softWrap: true,
-                                      style: TextStyle(
-                                        fontSize: 63 * fator_preco,
-                                        fontFamily: 'Qanelas',
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    margin:
-                                        EdgeInsets.only(top: 10 * fator_preco),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          'Puro Malte'.toUpperCase(),
-                                          textAlign: TextAlign.center,
-                                          softWrap: true,
-                                          style: TextStyle(
-                                            fontSize: 25 * fator_preco,
-                                          ),
-                                        ),
-                                        Text(
-                                          '12x696ml',
-                                          textAlign: TextAlign.center,
-                                          softWrap: true,
-                                          style: TextStyle(
-                                            fontSize: 25 * fator_preco,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
+                          for (var index in dataset)
+                            Content(
+                              index: index,
+                              models_of_boards:
+                                  models_of_boards[index_models_of_boards],
+                            )
                         ],
                       ),
-                      Positioned(
-                        bottom: -35 * (1 / fator_preco),
-                        left: 0,
-                        right: 0,
-                        child: Column(
-                          children: [
-                            // Divider(
-                            //   indent: 40,
-                            //   endIndent: 20,
-                            //   height: 0,
-                            //   thickness: 2,
-                            //   color: Colors.black,
-                            // ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'R\$ ',
-                                  softWrap: true,
-                                  style: TextStyle(
-                                    fontSize: 50 * fator_preco,
-                                  ),
-                                ),
-                                Text(
-                                  '27',
-                                  softWrap: true,
-                                  style: TextStyle(
-                                      fontSize: 250 * fator_preco,
-                                      color: Colors.black),
-                                ),
-                                Text(
-                                  ',45',
-                                  softWrap: true,
-                                  style: TextStyle(
-                                    fontSize: 100 * fator_preco,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                    ),
                   ),
-                ),
-
-                // ],
+                ],
               ),
-              Image(
-                image: AssetImage('assets/images/Oferta-G.png'),
-              )
+              RaisedButton(
+                color: Colors.white,
+                onPressed: () {
+                  // if (index_models_of_boards == 0) {
+                  //   setState(() {
+                  //     index_models_of_boards = models_of_boards.length - 1;
+                  //   });
+                  // } else {
+                  //   setState(() {
+                  //     index_models_of_boards--;
+                  //   });
+                  // }
+                },
+                child: Icon(
+                  Icons.arrow_right,
+                ),
+              ),
             ],
           )),
         ],
@@ -290,12 +234,111 @@ class _MyHomePageState extends State<MyHomePage> {
       // ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _incrementCounter();
+          print(models_of_boards[index_models_of_boards]);
+
           fn_aFour();
         },
         tooltip: 'Increment',
         child: Text(folha_nome),
       ),
     );
+  }
+}
+
+class Content extends StatelessWidget {
+  final models_of_boards;
+  final index;
+
+  const Content({Key key, this.models_of_boards, this.index}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    double w = 553;
+    double h = 842;
+
+    if (models_of_boards == null) {
+    } else if (models_of_boards == "Feirinha") {
+      return Stack(
+        children: [
+          Positioned(
+            left: model[index] == 'E'
+                ? 25
+                : model[index] == 'M'
+                    ? 25
+                    : 0,
+            right: model[index] == 'E'
+                ? (w / 2)+25
+                : model[index] == 'M'
+                    ? 25  
+                    : 0,
+            top: -12.5,        
+            child: Container(
+              height: h / 4,
+              width: w / 2,
+              child: Center(
+                child: Text(marca[index],
+                  style: TextStyle(fontFamily: 'Qanelas-Bold', fontSize: 50),textAlign: TextAlign.center,),
+              ),
+            ),
+          ),
+          Positioned(
+            left: model[index] == 'E'
+                ? w / 2
+                : model[index] == 'M'
+                    ? 0
+                    : 0,
+            right: model[index] == 'E'
+                ? 10
+                : model[index] == 'M'
+                    ? 0
+                    : 0,
+            top: model[index] == 'E'
+                ? 0
+                : model[index] == 'M'
+                    ? h / 4
+                    : 0,
+            bottom: 10,
+            child: Container(
+              height: h / 4,
+              width: w / 2,
+              child: Center(
+                child: Text(
+                  price[index].toString(),
+                  style: TextStyle(fontFamily: 'Qanelas-Bold', fontSize: 100),
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Image(
+              image: model[index] == 'E'
+                  ? AssetImage('assets/images/Espelho.png')
+                  : model[index] == 'M'
+                      ? AssetImage('assets/images/traco-M.png')
+                      : AssetImage('assets/images/traco-M.png'),
+            ),
+          ),
+        ],
+      );
+    } else if (models_of_boards == "Regular") {
+      return Container(
+        color: Colors.green,
+        child: Text(models_of_boards),
+      );
+    } else if (models_of_boards == "Oferta") {
+      return Container(
+        color: Colors.black,
+        child: Text(models_of_boards),
+      );
+    } else if (models_of_boards == "Promoção") {
+      return Container(
+        color: Colors.black,
+        child: Text(models_of_boards),
+      );
+    } else if (models_of_boards == "Scanner") {
+      return Container(
+        color: Colors.black,
+        child: Text(models_of_boards),
+      );
+    }
   }
 }
